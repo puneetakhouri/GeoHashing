@@ -21,6 +21,7 @@ public class StoreService {
         redisTemplate.opsForGeo().add(STORE_KEY, new Point(store.getLongitude(), store.getLatitude()), store.getId());
         redisTemplate.opsForHash().put(STORE_KEY + ":hash", store.getId(), store);
         return store;
+
     }
 
     public boolean isWithinDistance(String storeId, double latitude, double longitude, double maxDistance) {
